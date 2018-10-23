@@ -1,0 +1,19 @@
+{
+  "name": "albert-fb-extension",
+  "version": "0.0.1",
+  "description": "A FB Messenger Extension using the Albert SDK to provide invoicing services through Messenger",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --config ./jest.test.config.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robatalbert/AlbertFBExtension.git"
+  },
+  "author": "Rob O'Callaghan <rob@getalbert.com>",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/robatalbert/AlbertFBExtension/issues"
+  },
+  "homepage": "https://github.com/robatalbert/AlbertFBExtension#readme"
+}
