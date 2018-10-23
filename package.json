@@ -4,7 +4,13 @@
   "description": "A FB Messenger Extension using the Albert SDK to provide invoicing services through Messenger",
   "main": "index.js",
   "scripts": {
-    "test": "jest --config ./jest.test.config.json"
+    "precommit": "npm t && ./node_modules/.bin/documentation build index.js -f md -o docs.md && git add docs.md",
+    "pretest": "eslint .",
+    "test": "jest --config ./jest.test.config.json",
+    "spec": "jest --config ./jest.spec.config.json --runInBand --forceExit",
+    "spec:local": "source spec.env && jest --config ./jest.spec.config.json --runInBand --forceExit",
+    "test:watch": "jest --config ./jest.test.config.json --watch",
+    "test:verbose": "jest --config ./jest.test.config.json --watch --verbose"
   },
   "repository": {
     "type": "git",
@@ -15,5 +21,16 @@
   "bugs": {
     "url": "https://github.com/robatalbert/AlbertFBExtension/issues"
   },
-  "homepage": "https://github.com/robatalbert/AlbertFBExtension#readme"
+  "homepage": "https://github.com/robatalbert/AlbertFBExtension#readme",
+  "devDependencies": {
+    "eslint": "^5.7.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
+    "faker": "^4.1.0",
+    "jest": "^23.6.0",
+    "nock": "^10.0.1",
+    "supertest": "^3.3.0"
+  }
 }

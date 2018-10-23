@@ -1,0 +1,6 @@
+{
+  "testMatch": [
+    "**/__specs__/**/*.spec.js"
+  ],
+  "testEnvironment": "node"
+ }
