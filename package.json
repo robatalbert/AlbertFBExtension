@@ -32,5 +32,10 @@
     "jest": "^23.6.0",
     "nock": "^10.0.1",
     "supertest": "^3.3.0"
+  },
+  "dependencies": {
+    "albert-js-web-api": "git+ssh://git@github.com/hq-mobile/AlbertJSWebApi.git#users-api",
+    "koa": "^2.6.1",
+    "koa-router": "^7.4.0"
   }
 }

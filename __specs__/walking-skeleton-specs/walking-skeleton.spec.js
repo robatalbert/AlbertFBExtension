@@ -1,23 +1,18 @@
 const request = require('supertest');
 const nock = require('nock');
 const {
-  internet: {
-    url,
-    email,
-    password: randomPassword,
-  },
   random: {
     uuid,
   },
 } = require('faker');
 
-const app = require('../index.js');
+const app = require('../../index.js');
 
 describe('Walking Skeleton testing flow from dummy FB server to app to dummy Albert server', () => {
-  const dummyAlbertDomain = url();
-  const username = email();
-  const password = randomPassword();
-  const greetingPath = '/hello';
+  const dummyAlbertDomain = 'http://localhost';
+  const username = 'dummy@bla.com';
+  const password = 'dummyPassword';
+  const testPath = '/up';
   const credentialsObject = {
     _id: uuid(),
     username,
@@ -29,9 +24,13 @@ describe('Walking Skeleton testing flow from dummy FB server to app to dummy Alb
       .reply(200, credentialsObject);
   });
 
-  it('should send an incomming http request which triggers an external http request using the SDK', async () => {
+  afterAll(() => {
+    app.close();
+  });
+
+  it('should recieve an incomming http request which triggers an external http request using the SDK', async () => {
     await request(app)
-      .get(greetingPath)
+      .get(testPath)
       .expect('Content-Type', /json/)
       .expect(200)
       .expect(credentialsObject);
